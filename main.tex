@@ -1,0 +1,422 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+% 
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: singlespacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc} % inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{longtable}
+%\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{times}
+
+\usepackage[
+backend=bibtex,
+style=numeric,
+citestyle=ieee
+]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{references.bib} % The filename of the bibliography
+\usepackage{algorithmic}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{afterpage}
+\usepackage{verbatim}
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Offline Handwritten Amharic Word Recognition using Deep Learning } % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{\textsc{Dr. Getachew Alemu}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Masters of Science} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{\textsc{Eyob Sisay}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{Jimma, Ethiopia} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Computer Engineering} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{CNN-RNN-CTC, Deep learning, HTR, handwritten Amharic words} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{http://www.ju.edu.et}{Jimma University}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\institute{\href{https://www.ju.edu.et/jit/}{Jimma Institute of Technology}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \institutename
+\department{\href{https://www.ju.edu.et/?q=school-graduate-studies}{School of Graduate Studies}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{https://www.ju.edu.et/jit/?q=academics/schools-departments/electrical-computer-engineering}{Computer Engineering}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{https://www.ju.edu.et/jit/?q=academics/schools-departments/electrical-computer-engineering}{Faculty of Electrical and Computer Engineering}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying 
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[width=0.4\textwidth,height=0.4\textwidth]{Figures/ju_logo} 
+
+\vfill
+%\vspace*{.06\textheight}
+{\scshape\LARGE {\univname}\par}\vspace{0.2cm} 
+{\scshape\LARGE {\institutename}\par}\vspace{0.5cm}
+\textsc{\Large \deptname}\\[0.6cm] 
+%\textsc{\Large Masters Thesis}\\[0.5cm] % Thesis type
+
+\vspace{0.4cm} 
+{\Large \bfseries \ttitle\par}\vspace{0.5cm} % Thesis title
+ 
+\vfill
+\begin{minipage}[t]{0.7\textwidth}
+\begin{center}\large
+\emph{By: }\hspace{1.5em}
+\href{https://sites.google.com/view/eysi}{\authorname } % Author name
+
+\emph{Advisor: } \hspace{0.3em}
+\href{http://www.aait.edu.et/professor/dr-getachew-alemu}{\supname }
+
+\emph{Co-Advisor: } \hspace{0.2em}
+\href{https://www.researchgate.net/profile/Fetulhak_Abdurahman}{\textsc{Mr. Fetulhak Abdurahman }}
+\end{center}
+\end{minipage}\\[1cm]
+ 
+\vfill
+
+\large \textit{A thesis submitted to \deptname , \univname\\ in fulfillment of the requirements for the degree of \degreename}\\[0.3cm] % University
+\textit{in the field of}\\[0.3cm]
+\groupname\\[1cm] % Research group name and department name
+
+\vfill
+
+{\large \today} % Date
+
+\addressname % Address
+ 
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATE PAGE
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+\thispagestyle{empty} 
+\begin{center}
+
+%\includegraphics[width=0.4\textwidth , height=0.4\textwidth]{Logo} % University/department logo - uncomment to place it
+\includegraphics[width=0.4\textwidth,height=0.4\textwidth]{Figures/ju_logo} 
+
+%\vfill
+%\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{0.2cm} % University name
+{\scshape\Large \deptname\par}\vspace{0.4cm}
+{\scshape\large \facname\par}\vspace{1.4cm}
+\textsc{\large Masters Thesis on} % Thesis type
+
+{\Large \bfseries \ttitle\par}\vspace{1.2cm} % Thesis title
+
+\textsc{\large Approved by the Board of Examiners}\\[1cm] % Thesis approval
+
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Chairperson:}\\[0.1cm] 
+\href{https://www.researchgate.net/profile/Fetulhak_Abdurahman}{\textsc{Mr. Fetulhak Abdurahman}} 
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Signed: \hspace{4em} Date: } \\[0.1cm]
+\rule[0em]{4em}{0.5pt} \hspace{1em} \rule[0em]{1em}{0.5pt} / \rule[0em]{1em}{0.5pt} / \rule[0em]{2em}{0.5pt}
+\end{flushright}
+\end{minipage}\\[1cm]
+
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Internal Examiner:}\\[0.1cm] 
+\examname 
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Signed: \hspace{4em} Date: } \\[0.1cm]
+\rule[0em]{4em}{0.5pt} \hspace{1em} \rule[0em]{1em}{0.5pt} / \rule[0em]{1em}{0.5pt} / \rule[0em]{2em}{0.5pt}
+\end{flushright}
+\end{minipage}\\[1cm]
+ 
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushleft} \large
+\emph{External Examiner:}\\[0.1cm]
+\examname 
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Signed: \hspace{4em} Date: } \\[0.1cm]
+\rule[0em]{4em}{0.5pt} \hspace{1em} \rule[0em]{1em}{0.5pt} / \rule[0em]{1em}{0.5pt} / \rule[0em]{2em}{0.5pt}
+\end{flushright}
+\end{minipage}
+\end{center}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\pagebreak
+\pagenumbering{roman}
+\cleardoublepage
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % A declaration 
+\noindent I, \authorname, declare that this thesis titled, \emph{\enquote{ \ttitle}} and the work presented herein are my own, except where explicitly stated otherwise in the text, and with the guidance of my advisor. I confirm that the work has not previously been submitted for a degree or any other qualification at this or any other University or institution, this has been clearly stated. Moreover, all sources of materials that used in the thesis are acknowledged.\\[0.5cm] 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Student Name: } \\[0.1cm]
+\textcolor{blue}{ \authorname\,\textsc{Seyfu}} 
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright} \large
+\emph{Signed: \hspace{4em} Date: } \\[0.1cm]
+\underline{\includegraphics[width=0.3\linewidth, height=0.03\textheight]{Figures/eyob_signed}} \hspace{1em} \rule[0em]{1em}{0.5pt} / \rule[0em]{1em}{0.5pt} / \rule[0em]{2em}{0.5pt}
+\end{flushright}
+\end{minipage}\\[0.5cm] 
+
+As research Adviser, I hereby certify that I have read and evaluated this thesis paper prepared under my guidance, by \authorname\,\textsc{Seyfu} entitled \emph{\enquote{ \ttitle}} and recommend and would be accepted as a fulfilling requirement for the Degree \degreename\,in the field of \groupname.\\[0.5cm]
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Main Advisor:}\\[0.1cm] 
+\href{http://www.aait.edu.et/professor/dr-getachew-alemu}{\supname} 
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushright} \large
+\emph{Signed: \hspace{4em} Date: } \\[0.1cm]
+\rule[0em]{4em}{0.5pt} \hspace{1em} \rule[0em]{1em}{0.5pt} / \rule[0em]{1em}{0.5pt} / \rule[0em]{2em}{0.5pt}
+\end{flushright}
+\end{minipage}\\[1cm]
+ 
+\begin{minipage}[t]{0.5\textwidth}
+\begin{flushleft} \large
+\emph{Co-Advisor:}\\[0.1cm]
+\href{https://www.researchgate.net/profile/Fetulhak_Abdurahman}{\textsc{Mr. Fetulhak Abdurahman}} 
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Signed: \hspace{4em} Date: } \\[0.1cm]
+\rule[0em]{4em}{0.5pt} \hspace{1em} \rule[0em]{1em}{0.5pt} / \rule[0em]{1em}{0.5pt} / \rule[0em]{2em}{0.5pt}
+\end{flushright}
+\end{minipage}
+\end{declaration}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Abstract 
+
+The human brain and visual system works together when reading and writing texts typically for communication purpose. In today's digital technologies, handwriting recognition is involving artificial neural networks (ANNs) by replacing the machine learning algorithms. The use of ANNs for highly learned features from the data in the field of artificial intelligence (AI) brought deep learning systems. The data in this study is handwritten text, which is still a challenge in the research world. This is due to the fact that several language writing system use different alphabets and also handwriting calligraphy is personal. Our approaches for handwritten Amharic word recognition begin from preparing the dataset from scratch. To the authors knowledge, there was no any publicly available handwritten Amharic text dataset. We chose A* path-planning and scale space algorithms respectively for line and word level segmentation from the raw handwritten text image. We have collected 12,064 words and prepared 36,192 well augmented word-images for our dataset. Then in the main process, we have used CNN-RNN-CTC architecture. And in our model, Bayesian optimization algorithm used to set values for hyper-parameters such as input size, number of layers, filters size, etc. Thus, our best performing model takes $ 64 \times 256 \times 1 $ word-image in 12 convolutional layers to extract $ 31 \times 512 $ features, 2 stacked bi-directional GRUs for sequence modeling and CTC neural network output algorithm. We have finally got state-of-the-art results: $ 2.67\% $ CER and $ 8.83\% $ WER. 
+\end{abstract}
+
+\textbf{Keywords:} \keywordnames
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Acknowledgements 
+I'm thankful to \textsc{GOD} in everything. To the \univname\, and specifically to \facname, which provided me with basic requirements of the research. For all the teachings. And, special thanks to my teachers and advisors, \textsc{Dr. Getachew A.} and \textsc{Mr. Fetulhak A.} without their help it couldn't have been possible.
+
+Thanks to my aunt \textsc{Mrs. Tewabech S.} and my family, for having helped and supported in the different stages of my life, guiding me and believing in me at all times. I'm result of your efforts. To all my friends without you all it would have been harder and, above all, more boring.
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{AI} & \textbf{A}rtificial \textbf{I}ntelligence\\[1.15mm]
+\textbf{ANN} & \textbf{A}rtificial \textbf{N}eural \textbf{N}etwork\\[1.15mm]
+\textbf{AWR} & \textbf{A}mharic \textbf{W}ord \textbf{R}ecognition\\[1.15mm]
+\textbf{ASCII} & \textbf{A}merican \textbf{S}tandard \textbf{C}ode for \textbf{I}nformation \textbf{I}nterchange\\[1.15mm]
+\textbf{BERT} & \textbf{B}idirectional \textbf{E}ncoder \textbf{R}epresentations from \textbf{T}ransformers\\[1.15mm]
+\textbf{BGRU} & \textbf{B}idirectional \textbf{G}ated \textbf{R}ecurrent \textbf{U}nit\\[1.15mm]
+\textbf{BLSTM} & \textbf{B}idirectional \textbf{L}ong \textbf{S}hort \textbf{T}erm \textbf{M}emory\\[1.15mm]
+\textbf{BRNN} & \textbf{B}idirectional \textbf{R}ecurrent \textbf{N}eural \textbf{N}etwork\\[1.15mm]
+\textbf{CER} & \textbf{C}haracter \textbf{E}rror \textbf{R}ate\\[1.15mm]
+\textbf{CNN} & \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork\\[1.15mm]
+\textbf{CRF} & \textbf{C}onditional \textbf{R}andom \textbf{F}ields\\[1.15mm]
+\textbf{CTC} & \textbf{C}onnectionist \textbf{T}emporal \textbf{C}lassification\\[1.15mm]
+\textbf{DC} & \textbf{D}istrict of \textbf{C}olumbia\\[1.15mm]
+\textbf{ELMo} & \textbf{E}mbeddings from \textbf{L}anguage \textbf{Mo}dels\\[1.15mm]
+\textbf{GAN} & \textbf{G}enerative \textbf{A}dversarial \textbf{N}etwork\\[1.15mm]
+\textbf{G-CNN} & \textbf{G}ated \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork\\[1.15mm]
+\textbf{GPU} & \textbf{G}raphical \textbf{P}rocessing \textbf{U}nit\\[1.15mm]
+\textbf{GRU} & \textbf{G}ated \textbf{R}ecurrent \textbf{U}nit\\[1.15mm]
+\textbf{HAW-DB} & \textbf{H}andwritten \textbf{A}mharic \textbf{W}ord \textbf{D}atabase\\[1.15mm]
+\textbf{HMM} & \textbf{H}idden \textbf{M}arkov's \textbf{M}odel\\[1.15mm]
+\textbf{HTR} & \textbf{H}andwritten \textbf{T}ext \textbf{R}ecognition\\[1.15mm]
+\textbf{KNN} & \textbf{K}-nearest \textbf{N}eighbors \textbf{N}etwork\\[1.15mm]
+\textbf{LSTM} & \textbf{L}ong \textbf{S}hort \textbf{T}erm \textbf{M}emory\\[1.15mm]
+\textbf{MDLSTM} & \textbf{M}ulti-\textbf{D}irectional \textbf{L}ong \textbf{S}hort \textbf{T}erm \textbf{M}emory\\[1.15mm]
+\textbf{NLP/U} & \textbf{N}atural \textbf{L}anguage \textbf{P}rocessing and \textbf{U}nderstanding\\[1.15mm]
+\textbf{OCR} & \textbf{O}ptical \textbf{C}haracter \textbf{R}ecognition\\[1.15mm]
+\textbf{RAM} & \textbf{R}andom \textbf{A}ccess \textbf{M}emory\\[1.15mm]
+\textbf{RNN} & \textbf{R}ecurrent \textbf{N}eural \textbf{N}etwork\\[1.15mm]
+\textbf{SVM} & \textbf{S}upport \textbf{V}ector \textbf{M}achine\\[1.15mm]
+\textbf{WER} & \textbf{W}ord \textbf{E}rror \textbf{R}ate\\[1.15mm]
+\textbf{US} & \textbf{U}nited \textbf{S}tates\\[1.15mm]
+
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+%Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+%\end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+%$a$ & distance & \si{\meter} \\
+%$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+%\addlinespace % Gap to separate the Roman symbols from the Greek
+
+%$\omega$ & angular frequency & \si{\radian} \\
+
+%\end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\dedicatory{Dedicated to my aunt \textsc{Tewabech Seyfu}} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4} 
+\include{Chapters/Chapter5} 
+\include{Chapters/Chapter6}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc, title={References}]
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+\include{Appendices/AppendixB}
+\include{Appendices/AppendixC}
+\include{Appendices/AppendixD}
+
+\end{document}  

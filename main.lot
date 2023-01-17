@@ -1,0 +1,25 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Summary of some related works.\relax }}{21}{table.caption.83}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Statistics of the dataset\relax }}{22}{table.caption.86}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces AWR model architecture}}{31}{table.caption.138}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces The standard CNNs truncated for (32,128,1) input shape}}{34}{table.caption.144}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces The standard CNNs chopped off for (64,256,1) input shape}}{34}{table.caption.145}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Integration of GCNN to AWR model}}{35}{table.caption.147}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces The best performing model results}}{36}{table.caption.150}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces The effect of image size and RNN input length}}{37}{table.caption.151}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Result of an addition of 2-times augmented HAW-DB\relax }}{37}{table.caption.153}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Result of the standard CNNs integration\relax }}{39}{table.caption.158}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Chart of Amharic fidels}}{48}{table.caption.165}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Amharic punctuation\relax }}{50}{table.caption.167}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces Ethiopic numerals\relax }}{50}{table.caption.168}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Amharic characters encoding in CTC--labels\relax }}{51}{table.caption.170}%
+\addvspace {10\p@ }
