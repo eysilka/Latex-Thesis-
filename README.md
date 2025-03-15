@@ -1,4 +1,4 @@
-# Latex-Thesis-
+# Latex-Thesis-paper
 M.Sc. Thesis for Jimma University using Latex by Eyob Sisay.
  
  Steps to execute: 
